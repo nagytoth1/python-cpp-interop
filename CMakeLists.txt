@@ -16,11 +16,11 @@ set(pybind11_DIR ${PYBIND11_CMAKE_DIR})
 message(STATUS "Using pybind11 found at: ${pybind11_DIR}")
 find_package(pybind11 REQUIRED)
 
-pybind11_add_module(simple_module SHARED pybind_wrapper.cpp)
+pybind11_add_module(calculations_cpp SHARED pybind_wrapper.cpp)
 
-set_target_properties(simple_module PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON)
+set_target_properties(calculations_cpp PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON)
 
-# needed for importing the "simple_module" module from the build directory
+# needed for importing the "calculations_cpp" module from the build directory
 # this makes Python think the directory as a package making imports easier
 set(INIT_PY "${CMAKE_CURRENT_BINARY_DIR}/__init__.py")
 if(NOT EXISTS ${INIT_PY})
